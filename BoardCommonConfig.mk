@@ -164,6 +164,13 @@ BACKLIGHT_PATH := /sys/class/backlight/panel/brightness
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.exynos4
 
 # Misc
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),user)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # inherit from the proprietary version
