@@ -163,5 +163,8 @@ BACKLIGHT_PATH := /sys/class/backlight/panel/brightness
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.exynos4
 
+# Misc
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+
 # inherit from the proprietary version
 -include vendor/samsung/smdk4412-common/BoardConfigVendor.mk
