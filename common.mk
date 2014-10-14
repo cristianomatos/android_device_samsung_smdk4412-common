@@ -40,6 +40,10 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(COMMON_PATH)/audio/silence.wav:system/etc/sound/silence.wav
 
+# DIRAC HD
+PRODUCT_COPY_FILES += \
+    device/samsung/smdk4412-common/libdirac/libdirac.so:system/lib/soundfx/libdirac.so
+
 # Camera FW
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/80cfw:system/etc/init.d/80cfw
