@@ -127,7 +127,8 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-#wifi
+
+# Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
