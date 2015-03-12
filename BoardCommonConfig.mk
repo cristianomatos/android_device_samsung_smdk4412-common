@@ -31,12 +31,17 @@ TARGET_CPU_VARIANT := cortex-a9
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-device_flags := -mtune=cortex-a9 --param l1-cache-size=32 --param l1-cache-line-size=32 --param l2-cache-size=1024
+# Board already specifies -mcpu, but it won't hurt to add mtune, too
+BOARD_GLOBAL_CFLAGS += -mtune=cortex-a9
+BOARD_GLOBAL_CPPLAGS += -mtune=cortex-a9
 
-TARGET_GLOBAL_CFLAGS += $(device_flags)
-TARGET_GLOBAL_CPPFLAGS += $(device_flags)
-BOARD_GLOBAL_CFLAGS += $(device_flags)
-BOARD_GLOBAL_CPPFLAGS += $(device_flags)
+# Specify L1/L2 caches used for Exynos 4412
+BOARD_GLOBAL_CFLAGS += --param l1-cache-line-size=32 --param l1-cache-size=32 --param l2-cache-size=1024
+BOARD_GLOBAL_CPPLAGS += --param l1-cache-line-size=32 --param l1-cache-size=32 --param l2-cache-size=1024
+
+# Hint the compiler that we're using quad-core CPU
+BOARD_GLOBAL_CFLAGS += -mvectorize-with-neon-quad
+BOARD_GLOBAL_CPPLAGS += -mvectorize-with-neon-quad
 
 EXYNOS4X12_ENHANCEMENTS := true
 EXYNOS4_ENHANCEMENTS := true
