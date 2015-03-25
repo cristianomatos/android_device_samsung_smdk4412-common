@@ -193,5 +193,8 @@ ifeq ($(HOST_OS),linux)
 endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
+# Show Battery Percentage in LPM mode
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+
 # inherit from the proprietary version
 -include vendor/samsung/smdk4412-common/BoardConfigVendor.mk
